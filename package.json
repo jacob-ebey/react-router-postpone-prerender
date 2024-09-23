@@ -1,0 +1,43 @@
+{
+  "name": "remix-prerender",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "postinstall": "npx patch-package",
+    "build": "react-router build",
+    "prerender": "node prerender.js",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "overrides": {
+    "react": "0.0.0-experimental-d1afcb43-20240903",
+    "react-dom": "0.0.0-experimental-d1afcb43-20240903"
+  },
+  "dependencies": {
+    "@react-router/fs-routes": "0.0.0-nightly-242035412-20240921",
+    "@react-router/node": "0.0.0-nightly-242035412-20240921",
+    "@react-router/serve": "0.0.0-nightly-242035412-20240921",
+    "isbot": "^4.1.0",
+    "react": "0.0.0-experimental-d1afcb43-20240903",
+    "react-dom": "0.0.0-experimental-d1afcb43-20240903",
+    "react-router": "0.0.0-nightly-242035412-20240921"
+  },
+  "devDependencies": {
+    "@react-router/dev": "0.0.0-nightly-242035412-20240921",
+    "@types/node": "22.6.0",
+    "@types/react": "18.3.8",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "jsdom": "25.0.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.1.6",
+    "vite": "^5.1.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
