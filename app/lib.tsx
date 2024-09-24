@@ -1,10 +1,6 @@
 import * as React from "react";
-import {
-  Scripts,
-  ScriptsProps,
-  UNSAFE_FrameworkContext,
-  useMatches,
-} from "react-router";
+import type { ScriptsProps } from "react-router";
+import { Scripts, UNSAFE_FrameworkContext, useMatches } from "react-router";
 
 export async function postponed<T>(
   postpone: boolean,
@@ -53,12 +49,10 @@ function PostponedScriptsFallback({
   }
   const { manifest } = ctx;
 
-  const routePreloads = matches
-    .map((match) => {
-      let route = manifest.routes[match.id];
-      return (route.imports || []).concat([route.module]);
-    })
-    .flat(1);
+  const routePreloads = matches.flatMap((match) => {
+    const route = manifest.routes[match.id];
+    return (route.imports || []).concat([route.module]);
+  });
 
   const scripts = new Set([
     manifest.entry.module,
